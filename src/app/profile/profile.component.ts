@@ -182,4 +182,18 @@ export class ProfileComponent implements OnInit {
     })
   }
 
+  updateBoard() {
+  this.zone.run(() => {
+  this.session.edit(this.user)
+    .subscribe(result => {
+        if (result) {
+          // this.router.navigate(['/profile']);
+          this.toastr.success('Board updated');
+        } else {
+          this.toastr.error('Something went wrong');
+        }
+    });
+  });
+}
+
 }

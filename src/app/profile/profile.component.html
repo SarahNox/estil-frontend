@@ -4,7 +4,7 @@
       <div *ngIf="user">
         <div *ngIf="!user.avatar">
           <a class="thumbnail" href="#">
-            <img src="https://github.com/SarahNox/estil-frontend/blob/master/frontend/src/assets/images/default-avatar.png">
+            <img src="../assets/images/default-avatar.png">
           </a>
         </div>
         <div *ngIf="user.avatar">
@@ -128,7 +128,11 @@
 
 </div>
 
+
 <div class="col-lg-4 thumb gallery">
-  <h3 class="text-center">Style Gallery</h3>
-  <input type="file" class="form-control" name="picture" ng2FileSelect [uploader]="uploader2">
+  <h3 class="text-center">Your Board</h3>
+  <form *ngIf="user">
+    <input type="input" name="board" value="{{ user.board }}" placeholder="https://es.pinterest.com/your/board/" [(ngModel)]="user.board" (ngModelChange)="updateBoard()" id="board-url">
+    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="400" data-pin-scale-width="80" href="{{user.board}}"></a>
+  </form>
 </div>
