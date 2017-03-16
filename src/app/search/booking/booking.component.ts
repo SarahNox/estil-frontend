@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SessionService } from "../../session.service";
 import { SearchService } from "../../search.service";
+import { NgZone } from '@angular/core';
 import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 
 @Component({
@@ -15,19 +17,39 @@ export class BookingComponent implements OnInit {
   minute: string = "00";
   ampm: string = "pm";
   userId: any;
+  board: string;
 
   BASE_URL: string = 'https://estil-backend.herokuapp.com';
 
   constructor(
-    private searchService: SearchService,
+    private session: SessionService,
+    private search: SearchService,
+    private zone: NgZone,
     private toastr: ToastsManager
   ) { }
+
+  ngOnChanges() {
+    //have to change board to undefined to reload the form in the html, the only way to get the pinterest board to update between stylists
+    this.board = undefined;
+
+      this.session.getBoard(this.stylist._id)
+        .subscribe((response) => {
+          this.zone.run(() => {
+            this.board = response.user.board;
+            console.log(this.board);
+            console.log(this.stylist);
+            this.session.runPinterest();
+        });
+    });
+  }
 
   ngOnInit() {
     var date = new Date();
     this.date = this.formatDate(date);
 
     this.userId = localStorage.getItem("id");
+
+    console.log(this.stylist);
 
   }
 
@@ -56,7 +78,7 @@ export class BookingComponent implements OnInit {
       startTime: requestTime
     }
 
-    this.searchService.sendAppointment(appointmentData)
+    this.search.sendAppointment(appointmentData)
       .subscribe((response) => {
         console.log(response);
         if (response) {
