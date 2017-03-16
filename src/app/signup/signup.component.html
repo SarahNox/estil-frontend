@@ -1,0 +1,65 @@
+<div class="component">
+  <div class='col-xs-4 col-xs-offset-1 col1'>
+    <form *ngIf="stylistCheck == false">
+
+      <label for="firstName">
+        First Name
+      </label>
+    	<input type="text" name="firstName" [(ngModel)]="newUser.firstName" required/>
+      <label for="lastName">
+        Last Name
+      </label>
+    	<input type="text" name="lastName" [(ngModel)]="newUser.lastName" required/>
+      <label for="username">
+        Email
+      </label>
+    	<input type="email" name="username" [(ngModel)]="newUser.username" placeholder="Email Address" required email/>
+    	<label for="password">
+        Password
+      </label>
+    	<input type="password" name="password" [(ngModel)]="newUser.password" placeholder=".........." required/>
+      <button class="btn btn-info" (click)="signUp()">Sign Up</button>
+    </form>
+
+    <form *ngIf="stylistCheck">
+      <label for="firstName">
+        First Name
+      </label>
+    	<input type="text" name="firstName" [(ngModel)]="newStylist.firstName" required/>
+      <label for="lastName">
+        Last Name
+      </label>
+    	<input type="text" name="lastName" [(ngModel)]="newStylist.lastName" required/>
+      <label for="username">
+        Email
+      </label>
+    	<input type="text" name="username" [(ngModel)]="newStylist.username" placeholder="Email Address" required email/>
+      <label for="password">
+        Password
+      </label>
+    	<input type="password" name="password" [(ngModel)]="newStylist.password" placeholder=".........." required/>
+      <label for="location">
+        Location
+      </label>
+      <input type="text" name="location" [(ngModel)]="newStylist.location" required id="stylist-location"/>
+      <!-- <label for="resume">
+        Resume/Portfolio
+      </label>
+      <input type="file" name="resume" [(ngModel)]="newStylist.resume" placeholder=".........." required/> -->
+      <button class="btn btn-info" (click)="signUpStylist()">Apply to join</button>
+    </form>
+    <!-- <input type="text" name="location" id="location" required/> -->
+
+    <label for="resume">Are you a stylist? Check here</label>
+    <input type="checkbox" [(ngModel)]="stylistCheck">
+
+    <p class="account-message">
+      Do you already have an account? <a [routerLink]="['/login']">Login</a>
+    </p>
+  </div>
+
+
+  <div class='col-xs-6'>
+    <img src="../assets/images/home-screen.png" width="100%" height="auto" alt="">
+  </div>
+</div>
