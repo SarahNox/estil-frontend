@@ -30,7 +30,7 @@ export class ProfileComponent implements OnInit {
   servs: any = {};
 
 
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'https://estil-backend.herokuapp.com';
 
   constructor(
     private route: ActivatedRoute,
