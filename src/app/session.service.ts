@@ -15,7 +15,7 @@ export class SessionService implements CanActivate{
   home: EventEmitter<any> = new EventEmitter();
   public url: string;
 
-  BASE_URL: string = 'http://localhost:3000';
+  BASE_URL: string = 'https://estil-backend.herokuapp.com';
 
   constructor(
     private router: Router,
