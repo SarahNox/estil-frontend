@@ -67,7 +67,7 @@
 				<p> Name: {{ user.firstName }} {{ user.lastName }} </p>
 				<p> Location: {{ user.location }}</p>
         <p> Availability: {{ user.availability }}</p>
-        <p> Mobile: {{ user.mobile }}</p>
+        <p> Home visits?: {{ user.mobile }}</p>
         <p> Price: {{ user.price }}</p>
         <p> Languages: {{ user.languages }}</p>
         <p> Services: {{ user.services }}</p>
@@ -111,11 +111,11 @@
             <option value="€€€">€€€</option>
           </select>
           <br>
-        <label class="category" for="mobile">Where</label>
+        <label class="category" for="mobile">Home Visits</label>
           <select name="mobile" [(ngModel)]="user.mobile" id="">
-            <option value="dont mind">Don't Mind</option>
-            <option value="my place">My Place</option>
-            <option value="their place">Their Place</option>
+            <option value="Don't mind">Don't Mind</option>
+            <option value="My place">My Place</option>
+            <option value="Their place">Their Place</option>
           </select>
           <br>
         <label class="category" for="languages">Languages</label>
@@ -124,8 +124,8 @@
           <label><input type="checkbox" name="English" [(ngModel)]="langs.English">English</label><br>
         <label class="category" for="services">Services</label>
            <label><input type="checkbox" name="Unisex" [(ngModel)]="servs.Unisex">Unisex</label>
-+          <label><input type="checkbox" name="Men" [(ngModel)]="servs.Men">Men</label>
-+          <label><input type="checkbox" name="Women" [(ngModel)]="servs.Women">Women</label><br>
+           <label><input type="checkbox" name="Men" [(ngModel)]="servs.Men">Men</label>
+           <label><input type="checkbox" name="Women" [(ngModel)]="servs.Women">Women</label><br>
         <br>
 				<button class="btn btn-info" (click)="profileToggle()">Update</button>
 			</div>

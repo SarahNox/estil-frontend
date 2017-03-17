@@ -273,7 +273,7 @@ export class SearchComponent implements OnInit {
 		this.stylists.forEach(function(marker){
 			if (filters[0] != " " && filters[0] != marker["price"] ||
 				(filters[1] != " " && marker["availability"].indexOf(filters[1]) == -1) ||
-				(filters[2] != " " && filters[2] != marker["mobile"] && marker["mobile"] != "Both") ||
+				(filters[2] != " " && filters[2] != marker["mobile"] && marker["mobile"] != "Don't mind") ||
 				(filters[3] != " " && marker["languages"].indexOf(filters[3]) == -1)||
 				(filters[4] != " " && filters[4] != marker["expertise"] && marker["expertise"] != "Any")
 			) {
