@@ -216,7 +216,7 @@ export class SearchComponent implements OnInit {
 
     		var stylistName = firstName + " " + lastName;
 
-    		var content = "<a href='./view-stylist/" + firstName + "." + lastName+ "'>" + stylistName + "</a><br>" +  response[stylistMapInfo]["location"];
+    		var content = "<p>" + stylistName + "<br>" +  response[stylistMapInfo]["location"];
 
     		var infoWindow = new google.maps.InfoWindow({
     			content: content
