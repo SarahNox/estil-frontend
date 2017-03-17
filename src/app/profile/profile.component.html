@@ -67,6 +67,7 @@
 				<p> Name: {{ user.firstName }} {{ user.lastName }} </p>
 				<p> Location: {{ user.location }}</p>
         <p> Availability: {{ user.availability }}</p>
+        <p> Mobile: {{ user.mobile }}</p>
         <p> Price: {{ user.price }}</p>
         <p> Languages: {{ user.languages }}</p>
         <p> Services: {{ user.services }}</p>
@@ -108,6 +109,13 @@
             <option value="€">€</option>
             <option value="€€">€€</option>
             <option value="€€€">€€€</option>
+          </select>
+          <br>
+        <label class="category" for="mobile">Where</label>
+          <select name="mobile" [(ngModel)]="user.mobile" id="">
+            <option value="dont mind">Don't Mind</option>
+            <option value="my place">My Place</option>
+            <option value="their place">Their Place</option>
           </select>
           <br>
         <label class="category" for="languages">Languages</label>

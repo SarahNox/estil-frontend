@@ -29,6 +29,7 @@ export class ProfileComponent implements OnInit {
   langs: any = {};
   servs: any = {};
   board: any;
+  mobile: string;
 
   BASE_URL: string = 'http://localhost:3000';
 
